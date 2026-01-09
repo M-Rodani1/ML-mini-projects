@@ -53,8 +53,8 @@ Each project includes comprehensive theory documentation (LaTeX), clean NumPy im
 
 **Development:**
 - **Python 3.x**: Standard library only for utilities
-- **LaTeX**: Theory documentation (mathematical derivations, worked examples)
 
+  
 **Note**: Scikit-learn is used only for:
 - Loading standard datasets (breast cancer, iris, etc.)
 - Comparison/validation of results
