@@ -20,8 +20,8 @@ Each project includes comprehensive theory documentation (LaTeX), clean NumPy im
 
 ### Completed
 
-| Algorithm | Key Concepts | Status |
-|-----------|--------------|--------|
+| Algorithm | Key Concepts |
+|-----------|--------------|
 | **Linear Regression** | Gradient descent, MSE loss, closed-form solution | 
 | **Classification Pipeline** | Scikit-learn workflow (preprocessing, pipelines, evaluation) | 
 
