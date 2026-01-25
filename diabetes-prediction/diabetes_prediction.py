@@ -35,3 +35,17 @@ X_test_scaled = sc.transform(X_test_imputed)
 
 print(f"Mean of first feature (Train): {X_train_scaled[:, 0].mean():.4f}")
 print(f"Std of first feature (Train):  {X_train_scaled[:, 0].std():.4f}")
+
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+svm_model = SVC(kernel='rbf', random_state=42)
+svm_model.fit(X_train_scaled, y_train)
+y_pred = svm_model.predict(X_test_scaled)
+
+accuracy = accuracy_score(y_test, y_pred)
+confusion_matrix = confusion_matrix(y_test, y_pred)
+
+print(f"Model Accuracy: {accuracy:.2%}")
+print("\nConfusion Matrix:")
+print(confusion_matrix)
