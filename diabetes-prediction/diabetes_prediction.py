@@ -26,3 +26,12 @@ X_test_imputed = imputer.transform(X_test)
 
 print(f"Missing values in Train: {np.isnan(X_train_imputed).sum()}")
 print(f"Missing values in Test:  {np.isnan(X_test_imputed).sum()}")
+
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+
+X_train_scaled = sc.fit_transform(X_train_imputed)
+X_test_scaled = sc.transform(X_test_imputed)
+
+print(f"Mean of first feature (Train): {X_train_scaled[:, 0].mean():.4f}")
+print(f"Std of first feature (Train):  {X_train_scaled[:, 0].std():.4f}")
