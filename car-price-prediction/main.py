@@ -11,3 +11,36 @@ print("First 5 Kms:   ", df['kms_driven'].unique()[:5])
 
 ask_price_count = (df['Price'] == 'Ask For Price').sum()
 print(f"\nRows with 'Ask For Price': {ask_price_count}")
+
+
+# Clean 'Price'
+df = df[df['Price'] != "Ask For Price"]
+df['Price'] = df['Price'].str.replace(',', '').astype(int)
+
+# Clean 'kms_driven'
+# First, remove the " kms" text and commas
+df['kms_driven'] = df['kms_driven'].str.split(' ').str.get(0).str.replace(',', '')
+
+# Remove rows where kms_driven is missing (NaN)
+df = df[df['kms_driven'].notna()]
+
+# Now checking .isnumeric() won't crash because there are no NaNs left
+df = df[df['kms_driven'].str.isnumeric()]
+df['kms_driven'] = df['kms_driven'].astype(int)
+
+# Clean 'fuel_type'
+df = df[~df['fuel_type'].isna()]
+
+# Clean 'year'
+df = df[df['year'].str.isnumeric()]
+df['year'] = df['year'].astype(int)
+
+# Clean 'name'
+df['name'] = df['name'].str.split(' ').str.slice(0, 3).str.join(' ')
+
+# Reset Index
+df = df.reset_index(drop=True)
+
+print("\nCleaning Verification")
+print(df.info())
+print(f"Remaining Rows: {len(df)}")
