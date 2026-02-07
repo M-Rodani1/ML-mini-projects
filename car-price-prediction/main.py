@@ -45,6 +45,11 @@ print("\nCleaning Verification")
 print(df.info())
 print(f"Remaining Rows: {len(df)}")
 
+print("outliers")
+print(df[df['Price']> 6000000])
+df = df[df['Price'] < 6000000].reset_index(drop=True)
+
+
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import OneHotEncoder
