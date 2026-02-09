@@ -64,12 +64,4 @@ Each project includes comprehensive theory documentation (LaTeX), clean NumPy im
 
 All projects use synthetic datasets by default to focus on algorithm mechanics rather than data preprocessing.
 
----
 
-##Background
-
-I'm a first-year physics student learning machine learning through hands-on implementation. This repository serves both as:
-- A learning tool for building deep understanding
-- A portfolio demonstrating ability to translate mathematical concepts into working code
-
----
